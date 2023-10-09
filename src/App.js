@@ -1,6 +1,6 @@
 import './App.css';
 import TodoList from './components/TodoList'; 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddTodo from './components/AddTodo';
 
 
@@ -16,6 +16,8 @@ function App() {
 
     const [todos, setTodos] = useState(data)
   
+    
+
     function removeTodo(id) {
       let removeTasks = todos.filter((elem => elem.id !== id))
       setTodos(removeTasks)
@@ -40,6 +42,19 @@ function App() {
       setTodos([...todos, newTodo])
     }
 
+    useEffect(() => {
+      let local_data = localStorage.getItem('todos')
+      if(local_data) {
+        setTodos(JSON.parse)
+      } else {
+
+      }
+    }, [todos])
+
+
+    useEffect(() => {
+      localStorage.setItem
+    })
 
   return (
   <div>
