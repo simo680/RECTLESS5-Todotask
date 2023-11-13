@@ -44,17 +44,15 @@ function App() {
 
     useEffect(() => {
       let local_data = localStorage.getItem('todos')
-      if(local_data) {
-        setTodos(JSON.parse)
-      } else {
-
+      if(local_data){
+        setTodos(JSON.parse(local_data))
       }
-    }, [todos])
-
-
+    }, [])
+  
+    // Задание 1. Обеспечить непрерывное сохранение актуального массива в LS
     useEffect(() => {
-      localStorage.setItem
-    })
+      localStorage.setItem('todos', JSON.stringify(todos))
+    }, [todos])
 
   return (
   <div>
